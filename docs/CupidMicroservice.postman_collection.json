@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "48e4774b-23bc-46ea-bc0b-195df0b910e2",
+		"name": "Cupid Microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29960478"
+	},
+	"item": [
+		{
+			"name": "Client Hotle Data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "i2O4p6A8s0D3f5G7h9J1k3L5m7N9b"
+					}
+				],
+				"url": {
+					"raw": "https://content-api.cupid.travel/v3.0/property/1037179",
+					"protocol": "https",
+					"host": [
+						"content-api",
+						"cupid",
+						"travel"
+					],
+					"path": [
+						"v3.0",
+						"property",
+						"1037179"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Hotel Translation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "i2O4p6A8s0D3f5G7h9J1k3L5m7N9b"
+					}
+				],
+				"url": {
+					"raw": "https://content-api.cupid.travel/v3.0/property/1037179/lang/fr",
+					"protocol": "https",
+					"host": [
+						"content-api",
+						"cupid",
+						"travel"
+					],
+					"path": [
+						"v3.0",
+						"property",
+						"1037179",
+						"lang",
+						"fr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Hotel Reviews",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "i2O4p6A8s0D3f5G7h9J1k3L5m7N9b"
+					}
+				],
+				"url": {
+					"raw": "https://content-api.cupid.travel/v3.0/property/reviews/1037179/10",
+					"protocol": "https",
+					"host": [
+						"content-api",
+						"cupid",
+						"travel"
+					],
+					"path": [
+						"v3.0",
+						"property",
+						"reviews",
+						"1037179",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Force Sync Hotel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/v1/hotels/1037179/sync?warmLang=es",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"v1",
+						"hotels",
+						"1037179",
+						"sync"
+					],
+					"query": [
+						{
+							"key": "warmLang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Force Sync All Hotels",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/v1/hotels/sync-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"v1",
+						"hotels",
+						"sync-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotel by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/v1/hotels/1037179?lang=fr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"v1",
+						"hotels",
+						"1037179"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "fr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Force Sync Reviews",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/v1/hotels/1037179/reviews/sync?limit=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"v1",
+						"hotels",
+						"1037179",
+						"reviews",
+						"sync"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reviews by Hotel ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/v1/hotels/1037179/reviews?limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"v1",
+						"hotels",
+						"1037179",
+						"reviews"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotel Reviews Stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/api/v1/hotels/1037179/reviews/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"v1",
+						"hotels",
+						"1037179",
+						"reviews",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

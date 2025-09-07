@@ -1,0 +1,62 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: "adapter-integration-cupid"
+cupid:
+  api:
+    base-url: https://content-api.cupid.travel
+    key: ${CUPID_API_KEY:i2O4p6A8s0D3f5G7h9J1k3L5m7N9b}
+  feign:
+    connect-timeout-ms: 3000
+    read-timeout-ms: 5000
+    retry:
+      period-ms: 100
+      max-period-ms: 1000
+      max-attempts: 3
+    logger-level: BASIC
+
+feign:
+  client:
+    config:
+      cupid:
+        connectTimeout: 3000
+        readTimeout: 5000
+        loggerLevel: BASIC
+
+resilience4j:
+  retry:
+    instances:
+      cupid:
+        maxAttempts: 3
+        waitDuration: 300ms
+        enableRandomizedWait: true
+        randomizedWaitFactor: 0.5
+        retryExceptions:
+          - java.io.IOException
+          - com.nuitee.domain.exception.CupidTransientException
+        ignoreExceptions:
+          - com.nuitee.domain.exception.CupidNotFoundException
+          - com.nuitee.domain.exception.CupidClientException
+  circuitbreaker:
+    instances:
+      cupid:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 20
+        minimumNumberOfCalls: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: cupid-sync-service

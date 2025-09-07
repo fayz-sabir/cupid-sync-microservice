@@ -1,0 +1,3 @@
+com\nuitee\domain\i18n\LangTest.class
+com\nuitee\domain\policy\I18nFallbackPolicyTest.class
+com\nuitee\domain\policy\ReviewPolicyTest.class

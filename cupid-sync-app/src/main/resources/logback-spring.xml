@@ -1,0 +1,11 @@
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+  <!-- This tells Boot's base.xml where to write; change the default name/path if you like -->
+  <springProperty scope="context" name="LOG_FILE" source="LOG_FILE" defaultValue="logs/cupid-sync.log"/>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>
