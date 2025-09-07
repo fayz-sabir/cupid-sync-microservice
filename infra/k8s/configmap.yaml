@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cupid-sync-config
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cupid
+  SPRING_DATASOURCE_USERNAME: cupid
+  SPRING_DATASOURCE_PASSWORD: cupid
+  SPRING_DATA_REDIS_HOST: redis
+  SPRING_DATA_REDIS_PORT: "6379"
+  SPRING_DATA_REDIS_PASSWORD: cupid_redis_pw
